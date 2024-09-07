@@ -2,12 +2,15 @@ package com.rajat.learn.TMS.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.OffsetDateTime;
 
 @Data
 @NoArgsConstructor
@@ -30,4 +33,8 @@ public class SubTask {
     private String  sub_task_id;
 
     private String user_name;
+
+    @Column(name = "end_date")
+    @JsonIgnore
+    private OffsetDateTime endTime;
 }

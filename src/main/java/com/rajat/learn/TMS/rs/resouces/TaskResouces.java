@@ -1,5 +1,6 @@
 package com.rajat.learn.TMS.rs.resouces;
 
+import com.rajat.learn.TMS.exceptions.InvalidRequestException;
 import com.rajat.learn.TMS.model.Task;
 import com.rajat.learn.TMS.rs.managers.TaskManager;
 import com.sun.jdi.request.InvalidRequestStateException;
@@ -23,12 +24,17 @@ public class TaskResouces {
 
 
     @PostMapping("/taskPost")
-    public void addTask(@RequestBody Task task) throws InvalidRequestStateException {
+    public void addTask(@RequestBody Task task)  {
         taskManager.addNewTask(task);
     }
 
     @GetMapping("/task")
     public List<Task> getAllTask(){
         return taskManager.getAllDetails();
+    }
+
+    @PutMapping("/updataTask")
+    public void updateTask(@RequestBody Task task){
+         taskManager.updatetask(task);
     }
 }

@@ -17,6 +17,9 @@ public class SubTaskManager {
     @Autowired
     private SubTaskDao subTaskDao;
 
+    @Autowired
+    public TimeManager timeManager;
+
 
     void updateSubTask(String taskName, List<SubTask> subTaskList) {
 
@@ -27,6 +30,8 @@ public class SubTaskManager {
             subTask.setTask_name(taskName);
             subTask.setSub_task_id(taskName+"_"+ subTask.getSub_task_name());
             subTask.setSub_task_state(String.valueOf(CREATED));
+//            subTask.setEndTime((timeManager.getEndTime(
+                    
 
             subTaskDao.save(subTaskList.get(i));
         }
@@ -46,6 +51,11 @@ public class SubTaskManager {
     public SubTask getSubTaskById(String subTaskID) {
 
         return subTaskDao.findById(subTaskID).orElse(new SubTask());
+    }
+
+    public List<SubTask> getAllSubTask(){
+
+        return subTaskDao.findAll();
     }
 
     public void CheckSubTaskDetails(SubTask entity1, SubTask entity2) {

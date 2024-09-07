@@ -1,7 +1,7 @@
 package com.rajat.learn.TMS.model;
 
 public enum CompletionTime {
-    TODAY,
+    DAY,
     MONTH,
     YEAR;
 }
