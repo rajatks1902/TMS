@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout Example</title>
+    <!-- Add any CSS files or inline styles here -->
+</head>
+<body>
+<header>
+    <h1>Welcome to Your Application</h1>
+    <!-- Navigation bar or other header content -->
+</header>
+
+<main>
+    <h2>Dashboard</h2>
+    <p>This is the dashboard page where you can add your content.</p>
+
+    <!-- Logout Form -->
+    <form id="logoutForm" th:action="@{/logout}" method="POST">
+        <!-- CSRF Token (automatically added by Thymeleaf when using Spring Security) -->
+        <input type="submit" value="Logout">
+    </form>
+</main>
+
+<footer>
+    <!-- Footer content -->
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+</footer>
+
+<!-- Add any JavaScript files or inline scripts here -->
+</body>
+</html>
